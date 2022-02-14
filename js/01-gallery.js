@@ -1,17 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-// 4. Открытие модального окна по клику на элементе галереи.
-//      Для этого ознакомься с документацией и примерами.
-// 5. Замена значения атрибута src элемента < img > в модальном окне
-//      перед открытием.Используй готовую разметку модального окна
-//      с изображением из примеров библиотеки basicLightbox.
-// Ссылка на оригинальное изображение должна храниться в data-атрибуте
-//      source на элементе < img >, и указываться в href ссылки.Не добавляй
-//      другие HTML теги или CSS классы кроме тех, что есть в этом шаблоне.
-// Обрати внимание на то, что изображение обернуто в ссылку,
-// а значит при клике по умолчанию пользователь будет перенаправлен
-// на другую страницу.Запрети это поведение по умолчанию.
 // Добавь закрытие модального окна по нажатию клавиши Escape. С
 // делай так, чтобы прослушивание клавиатуры было только пока открыто
 //  модальное окно.У библиотеки basicLightbox есть метод для
@@ -51,9 +40,17 @@ function onClick(evt) {
 
   instance.show();
 
+  // const visible = instance.visible()
+  
   // const galleryItem = document.querySelector(".gallery__item");
+  // window.removeEventListener('keydown', onEscKeyPress);
 
-  // if (evt.key === 'Escape') {
-  //   modal.style.visibility = hidden;
-  // }
 }
+// function onEscKeyPress(event) {
+//   const ESC_KEY_CODE = 'Escape';
+//   const isEscKey = event.code === ESC_KEY_CODE;
+
+//   if (isEscKey) {
+//      instance.close();
+//   }
+// }
