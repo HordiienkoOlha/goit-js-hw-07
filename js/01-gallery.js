@@ -1,11 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-// 2. Реализация делегирования на div.gallery и получение url
-//      большого изображения.
-// 3. Подключение скрипта и стилей библиотеки модального окна basicLightbox.
-//      Используй CDN сервис jsdelivr и добавь в проект ссылки
-//      на минифицированные(.min) файлы библиотеки.
 // 4. Открытие модального окна по клику на элементе галереи.
 //      Для этого ознакомься с документацией и примерами.
 // 5. Замена значения атрибута src элемента < img > в модальном окне
@@ -22,7 +17,6 @@ import { galleryItems } from "./gallery-items.js";
 //  модальное окно.У библиотеки basicLightbox есть метод для
 // программного закрытия модального окна.
 const list = document.querySelector(".gallery");
-// console.log(list);
 
 const newList = galleryItems
   .map(
@@ -40,13 +34,26 @@ const newList = galleryItems
   .join("");
 
 list.insertAdjacentHTML("beforeend", newList);
-// console.log();
 
-// list.addEventListener("click", onClick);
-// function onClick(evt) {
-//   if (evt.target.nodeName !== "BUTTON") {
-//     return;
-//   }
+list.addEventListener("click", onClick);
+function onClick(evt) {
+  evt.preventDefault();
 
-//   console.log(evt.target);
-// }
+  const sourseImage = evt.target.src;
+
+  const instance = basicLightbox.create(`
+    <img class="modal" src="${sourseImage}">
+`);
+
+  if (evt.target.nodeName !== "IMG") {
+    return;
+  }
+
+  instance.show();
+
+  // const galleryItem = document.querySelector(".gallery__item");
+
+  // if (evt.key === 'Escape') {
+  //   modal.style.visibility = hidden;
+  // }
+}
